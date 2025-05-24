@@ -42,15 +42,10 @@ This is a dynamic PHP-based Music Player web application developed as a term pro
 
 ---
 
-## 📷 Screenshots
 
-| Login Page | Playlist View | Now Playing |
-|------------|----------------|--------------|
-| ![](screenshots/login.png) | ![](screenshots/playlist.png) | ![](screenshots/nowplaying.png) |
 
-> You can also find screenshots in the `/screenshots` folder.
 
----
+
 
 ## 🚀 Getting Started
 
@@ -72,7 +67,6 @@ This is a dynamic PHP-based Music Player web application developed as a term pro
    http://localhost/musicplayer/login.html
    ```
 
----
 
 ## 📁 Project Structure
 
