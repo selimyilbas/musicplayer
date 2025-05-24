@@ -1,0 +1,112 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Player Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            width: 300px;
+            text-align: center;
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1db954;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-box button:hover {
+            background-color: #1ed760;
+        }
+        .error {
+            background-color: #ff4c4c;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const username = document.forms["loginForm"]["username"].value.trim();
+            const password = document.forms["loginForm"]["password"].value.trim();
+            const errorBox = document.getElementById("error-box");
+
+            const usernameRegex = /^[a-zA-Z0-9_]+$/;
+
+            if (!username || !password) {
+                errorBox.innerText = "Please fill in both username and password.";
+                errorBox.style.display = "block";
+                return false;
+            }
+
+            if (!usernameRegex.test(username)) {
+                errorBox.innerText = "Username can only contain letters, numbers, and underscores.";
+                errorBox.style.display = "block";
+                return false;
+            }
+
+            return true;
+        }
+
+        window.onload = function () {
+            const errorBox = document.getElementById("error-box");
+            if (errorBox.innerText.trim() !== "") {
+                errorBox.style.display = "block";
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Music Player Login</h2>
+
+        <div id="error-box" class="error">
+            <?php
+            if (isset($_SESSION['login_error'])) {
+                echo htmlspecialchars($_SESSION['login_error']);
+                unset($_SESSION['login_error']);
+            }
+            ?>
+        </div>
+
+        <form name="loginForm" action="login.php" method="POST" onsubmit="return validateForm()">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

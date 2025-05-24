@@ -1,0 +1,10 @@
+1,United States,US
+2,United Kingdom,UK
+3,Canada,CA
+4,Germany,DE
+5,France,FR
+6,Spain,ES
+7,Italy,IT
+8,Japan,JP
+9,South Korea,KR
+10,Brazil,BR

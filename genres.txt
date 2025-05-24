@@ -1,0 +1,10 @@
+Pop
+Rock
+Jazz
+Classical
+Electronic
+Hip Hop
+Country
+R&B
+Blues
+Folk
